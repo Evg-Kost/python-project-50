@@ -3,3 +3,6 @@ install:
 
 build:
 	uv build
+
+reinstall-package:
+	uv tool install --force dist/*.whl
