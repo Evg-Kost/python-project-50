@@ -3,7 +3,7 @@ def compare_files(file1, file2):
     for i in file1.keys():
         if i in file2:
             if file1.get(i) == file2.get(i):
-                new_file['  '+ i] = file1[i]
+                new_file['  ' + i] = file1[i]
             else:
                 new_file['- ' + i] = file1[i]
                 new_file['+ ' + i] = file2[i]
@@ -17,6 +17,7 @@ def compare_files(file1, file2):
         result += f'{i[0]}: {i[1]}\n'
     result += '}'
     return result
+
 
 """
 file1 = {
