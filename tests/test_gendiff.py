@@ -13,9 +13,18 @@ def read_file(filename):
     return open(get_test_data_path(filename))
 
 
-def test_gendiff():
-    file1 = json.load(read_file('file1.json'))
-    file2 = json.load(read_file('file2.json'))
+def test_gendiff_json():
+    file1 = get_test_data_path('file1.json')
+    file2 = get_test_data_path('file2.json')
+    expected = read_file('result.txt').read()
+    actual = gendiff(file1, file2)
+
+    assert actual == expected
+
+
+def test_gendiff_yml():
+    file1 = get_test_data_path('file1.yml')
+    file2 = get_test_data_path('file2.yaml')
     expected = read_file('result.txt').read()
     actual = gendiff(file1, file2)
 

@@ -1,3 +1,6 @@
+# import json
+# import yaml
+
 def compare_files(file1, file2):
     new_file = {}
     for i in file1.keys():
@@ -19,18 +22,18 @@ def compare_files(file1, file2):
     return result
 
 
-"""
-file1 = {
-  "host": "hexlet.io",
-  "timeout": 50,
-  "proxy": "123.234.53.22",
-  "follow": False
-}
-file2 = {
-  "timeout": 20,
-  "verbose": True,
-  "host": "hexlet.io"
-}
-
-print(compare_files(file1, file2))
-"""
+# filepath1 = """{
+#   "host": "hexlet.io",
+#   "timeout": 50,
+#   "proxy": "123.234.53.22",
+#   "follow": False
+# }"""
+# # filepath2 = {
+# #     "timeout": 20,
+# #     "verbose": True,
+# #     "host": "hexlet.io"
+# # }
+# file1 = yaml.safe_load(open('/home/evgeny/PycharmProjects/
+# PythonProject/python-project-50/tests/test_data/file1.yml'))
+# print(file1)
+# #print(compare_files(file1, file2))
