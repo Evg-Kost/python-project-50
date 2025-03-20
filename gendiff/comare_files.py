@@ -14,8 +14,8 @@ def compare_files(file1, file2):
             new_file['+ ' + i] = file2[i]
     result = '{\n'
     for i in sorted(new_file.items(), key=lambda item: item[0][2:]):
-        result += f'{i[0]}: {i[1]}\n'
-    result += '}'
+        result += f'  {i[0]}: {i[1]}\n'
+    result += '}\n'
     return result
 
 

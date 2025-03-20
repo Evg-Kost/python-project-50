@@ -23,5 +23,9 @@ def main():
     print(compare_files(file1, file2))
 
 
+def gendiff(file1, file2):
+    return compare_files(file1, file2)
+
+
 if __name__ == "__main__":
     main()
