@@ -19,7 +19,7 @@ def check_type(values, level):
     return '{\n' + '\n'.join(result) + '\n' + predict[:-4] + '}'
 
 
-def stylish(data, level=1):
+def get_stylish(data, level=1):
     items = []
     predict = level * '    '
     for key, value in data.items():
@@ -27,10 +27,10 @@ def stylish(data, level=1):
             case 'added':
                 items.append(f'{predict[:-2]}+ {key}: '
                              f'{check_type(value["value"], level + 1)}')
-            case 'deleted':
+            case 'removed':
                 items.append(f'{predict[:-2]}- {key}: '
                              f'{check_type(value["value"], level + 1)}')
-            case 'update':
+            case 'updated':
                 items.append(f'{predict[:-2]}- {key}: '
                              f'{check_type(value["old_value"], level + 1)}')
                 items.append(f'{predict[:-2]}+ {key}: '
@@ -40,7 +40,7 @@ def stylish(data, level=1):
                              f'{check_type(value["value"], level + 1)}')
             case 'nested':
                 items.append(f'{predict[:-2]}  {key}: '
-                             f'{stylish(value["value"], level + 1)}')
+                             f'{get_stylish(value["value"], level + 1)}')
             case _:
                 print('error', value)
     return '{\n' + '\n'.join(items) + '\n' + predict[:-4] + '}'

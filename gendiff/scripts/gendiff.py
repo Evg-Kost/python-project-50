@@ -4,7 +4,12 @@ import json
 import yaml
 
 from gendiff.comare_files import compare_files
-from gendiff.formats.stylish import stylish
+from gendiff.formats import plain, stylish
+
+FORMATS = {
+    "stylish": stylish.get_stylish,
+    "plain": plain.get_plain
+}
 
 
 def main():
@@ -28,7 +33,7 @@ def gendiff(filepath1, filepath2, format_name='stylish'):
         file2 = json.load(open(filepath2))
     elif extension2 == '.yml' or extension2 == '.yaml':
         file2 = yaml.safe_load(open(filepath2))
-    return stylish(compare_files(file1, file2))
+    return FORMATS[format_name](compare_files(file1, file2))
 
 
 if __name__ == "__main__":
