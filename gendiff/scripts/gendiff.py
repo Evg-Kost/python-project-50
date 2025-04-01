@@ -5,11 +5,14 @@ from pathlib import Path
 import yaml
 
 from gendiff.comare_files import compare_files
-from gendiff.formats import plain, stylish
+from gendiff.formats.json import get_json
+from gendiff.formats.plain import get_plain
+from gendiff.formats.stylish import get_stylish
 
 FORMATS = {
-    "stylish": stylish.get_stylish,
-    "plain": plain.get_plain
+    "stylish": get_stylish,
+    "plain": get_plain,
+    "json": get_json
 }
 
 
