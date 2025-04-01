@@ -1,13 +1,13 @@
 import argparse
 import json
-from pathlib import Path
-
 import yaml
 
+from pathlib import Path
+
 from gendiff.comare_files import compare_files
-from gendiff.formats.json import get_json
 from gendiff.formats.plain import get_plain
 from gendiff.formats.stylish import get_stylish
+from gendiff.formats.json import get_json
 
 FORMATS = {
     "stylish": get_stylish,
@@ -21,8 +21,9 @@ def main():
         description="Compares two configuration files and shows a difference.")
     parser.add_argument("first_file", type=str)
     parser.add_argument("second_file", type=str)
-    parser.add_argument("-f", "--format", type=str, help="set format of output")
+    parser.add_argument("-f", "--format", type=str, help="set format of output", default="stylish")
     args = parser.parse_args()
+    print(args)
     print(gendiff(args.first_file, args.second_file, args.format))
 
 
