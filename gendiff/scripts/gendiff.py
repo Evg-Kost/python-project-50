@@ -1,5 +1,6 @@
 import argparse
 import json
+from pathlib import Path
 
 import yaml
 
@@ -17,14 +18,14 @@ def main():
         description="Compares two configuration files and shows a difference.")
     parser.add_argument("first_file", type=str)
     parser.add_argument("second_file", type=str)
-    parser.add_argument("-f", "--format", help="set format of output")
+    parser.add_argument("-f", "--format", type=str, help="set format of output")
     args = parser.parse_args()
-    print(gendiff(args.first_file, args.second_file))
+    print(gendiff(args.first_file, args.second_file, args.format))
 
 
 def gendiff(filepath1, filepath2, format_name='stylish'):
-    extension1 = filepath1.suffix
-    extension2 = filepath2.suffix
+    extension1 = Path(filepath1).suffix
+    extension2 = Path(filepath2).suffix
     if extension1 == '.json':
         file1 = json.load(open(filepath1))
     elif extension1 == '.yml' or extension1 == '.yaml':
