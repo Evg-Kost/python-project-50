@@ -1,5 +1,5 @@
-from gendiff.comare_files import compare_files
+from gendiff.scripts.gendiff import gendiff
 
 
-def generate_diff(file1, file2):
-    return compare_files(file1, file2)
+def generate_diff(file1, file2, styl='stylish'):
+    return gendiff(file1, file2, styl)
