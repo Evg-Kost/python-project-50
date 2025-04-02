@@ -1,13 +1,13 @@
 import argparse
 import json
-import yaml
-
 from pathlib import Path
 
+import yaml
+
 from gendiff.comare_files import compare_files
+from gendiff.formats.json import get_json
 from gendiff.formats.plain import get_plain
 from gendiff.formats.stylish import get_stylish
-from gendiff.formats.json import get_json
 
 FORMATS = {
     "stylish": get_stylish,
